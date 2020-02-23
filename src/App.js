@@ -7,6 +7,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
 import LoanParameters from './components/LoanParameters';
+import Table from './components/Table';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,6 +25,14 @@ const useStyles = makeStyles(theme => ({
     paddingTop: 20
   }
 }));
+
+const rows = [
+  { date: '01/01/2020', principle: '£2,500', interest: '£300', repayment: '£2,800' },
+  { date: '01/02/2020', principle: '£2,500', interest: '£300', repayment: '£2,800' },
+  { date: '01/03/2020', principle: '£2,500', interest: '£300', repayment: '£2,800' },
+  { date: '01/04/2020', principle: '£2,500', interest: '£300', repayment: '£2,800' },
+  { date: 'Total', principle: '£10,000', interest: '£750', repayment: '£10,750' },
+];
 
 function App() {
   const classes = useStyles();
@@ -44,10 +53,14 @@ function App() {
           </Paper>
         </Grid>
         <Grid item xs>
-          <Paper className={classes.paper}>RCF Table</Paper>
+          <Paper className={classes.paper}>
+            <Table rows={rows} />
+          </Paper>
         </Grid>
         <Grid item xs>
-          <Paper className={classes.paper}>BCR Table</Paper>
+          <Paper className={classes.paper}>
+            <Table rows={rows} />
+          </Paper>
         </Grid>
       </Grid>
     </div>
