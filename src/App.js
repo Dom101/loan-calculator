@@ -6,6 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
+import LoanParameters from './components/LoanParameters';
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -13,7 +15,6 @@ const useStyles = makeStyles(theme => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: "center",
-    // color: theme.palette.text.secondary
   },
   title: {
     flexGrow: 1,
@@ -38,7 +39,9 @@ function App() {
       </AppBar>
       <Grid container spacing={2} className={classes.grid}>
         <Grid item xs={12}>
-          <Paper className={classes.paper}>Input</Paper>
+          <Paper className={classes.paper}>
+            <LoanParameters />
+          </Paper>
         </Grid>
         <Grid item xs>
           <Paper className={classes.paper}>RCF Table</Paper>
