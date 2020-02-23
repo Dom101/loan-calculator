@@ -16,7 +16,7 @@ test('renders the loan input fields', async () => {
   const wrapper = renderWrapper();
   expect(wrapper.getByText('Amount Requested')).toBeTruthy();
   expect(wrapper.getByText('£')).toBeTruthy();
-  expect(wrapper.getByText('Amount Requested')).toBeTruthy();
+  expect(wrapper.getByText('Duration')).toBeTruthy();
   expect(wrapper.getByText('months')).toBeTruthy();
 });
 
