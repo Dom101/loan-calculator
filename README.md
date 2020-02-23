@@ -1,13 +1,14 @@
 # loan-calculator
 React app that calculates the loan repayments for 2 types of loans given the amount and duration
 
-It has been deployed to loan-calculator-dom101.surge.sh
+It has been deployed to [loan-calculator-dom101.surge.sh](loan-calculator-dom101.surge.sh)
 
 ## How it works
 
 There are 2 types of loan products.
 - Revolving Credit Facility product (RCF) used for small amounts and short terms
 - Business Loan product (BL) used mainly for bigger amounts and longer terms
+
 They calculate the Principal which is the total requested loan amount divided equally over the number of selected months. The interest is calculated each month from the total principal remaining at the end of that month, depending on the interest rate. Then the total repayment which is the principle + the interest.
 
 The difference between the two is that the BL has an extra fee which is calculated on the first month. It is 10% of the loan amount paid which is added to the interest.
