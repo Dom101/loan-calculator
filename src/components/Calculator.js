@@ -6,14 +6,13 @@ import { bool } from 'prop-types';
 
 import Table from './Table';
 import repaymentCalculator from '../utils/repaymentCalculator';
+import isValidLoan from '../utils/validLoan';
 import LoanContext from '../modules/Loan/Context';
 
 export default function Calculator({ isBl }) {
   const title = isBl ? 'Business Loan' : 'Revolving Credit Facility';
   const [interestRate, setInterestRate] = useState(3);
   const { amount, duration } = useContext(LoanContext);
-
-  const rows = repaymentCalculator(amount, duration, interestRate, isBl);
 
   const useStyles = makeStyles(theme => ({
     margin: {
@@ -22,6 +21,16 @@ export default function Calculator({ isBl }) {
   }));
 
   const classes = useStyles();
+
+  if (!isValidLoan(amount, duration, isBl)) {
+    return (
+      <Typography variant="h6" className={classes.margin}>
+        Sorry {title} isn't available for that duration / amount
+      </Typography>
+    );
+  }
+
+  const rows = repaymentCalculator(amount, duration, interestRate, isBl);
 
   return (
     <div>
