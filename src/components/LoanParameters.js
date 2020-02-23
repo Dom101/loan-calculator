@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import FormControl from '@material-ui/core/FormControl';
 import Input from '@material-ui/core/Input';
@@ -8,16 +8,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import LoanContext from '../modules/Loan/Context';
 
 export default function LoanInputs() {
-  // const [values, setValues] = useState({
-  //   amount: '',
-  //   duration: ''
-  // });
   const { amount, duration, setAmount, setDuration } = useContext(LoanContext);
-
-
-  // const handleChange = prop => event => {
-  //   setValues({ ...values, [prop]: event.target.value });
-  // };
 
   const useStyles = makeStyles(theme => ({
     root: {

@@ -1,11 +1,36 @@
-export default function repaymentCalculator(amount, interest) {
-  const repayments = [
-    { date: '01/01/2020', principle: '£2,500', interest: '£300', repayment: '£2,800' },
-    { date: '01/02/2020', principle: '£2,500', interest: '£300', repayment: '£2,800' },
-    { date: '01/03/2020', principle: '£2,500', interest: '£300', repayment: '£2,800' },
-    { date: '01/04/2020', principle: '£2,500', interest: '£300', repayment: '£2,800' },
-    { date: 'Total', principle: '£10,000', interest: '£750', repayment: '£10,750' },
-  ];
+export default function repaymentCalculator(amount, duration, interestRate) {
+  const principle = amount / duration;
+
+  const repayments = [];
+  const date = new Date();
+  let remainingTotal = amount;
+  let totalInterest = 0;
+  let totalRepayment = 0;
+
+  for (let i = 0; i < duration; i++) {
+    date.setMonth(date.getMonth() + 1);
+    const interest = (remainingTotal * interestRate) / 100;
+    const repayment = interest + principle;
+
+    repayments.push({
+      date: `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`,
+      principle,
+      interest,
+      repayment,
+    });
+
+    remainingTotal -= principle;
+    totalInterest += interest;
+    totalRepayment += repayment;
+  }
+
+  // Add total 
+  repayments.push({
+    date: 'Total',
+    principle: amount,
+    interest: totalInterest,
+    repayment: totalRepayment,
+  });
 
   return repayments;
 }

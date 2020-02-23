@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   FormControl, Input, InputLabel, InputAdornment, Typography, makeStyles
 } from '@material-ui/core';
 
 import Table from './Table';
 import repaymentCalculator from '../utils/repaymentCalculator';
+import LoanContext from '../modules/Loan/Context';
 
 export default function RcfCalculator() {
   const [interestRate, setInterestRate] = useState(3);
-  const rows = repaymentCalculator();
+  const { amount, duration } = useContext(LoanContext);
+
+  const rows = repaymentCalculator(amount, duration, interestRate);
 
   const useStyles = makeStyles(theme => ({
     margin: {
