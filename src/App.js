@@ -54,7 +54,7 @@ function App() {
           </Grid>
           <Grid item xs>
             <Paper className={classes.paper}>
-              <Calculator isBc />
+              <Calculator isBl />
             </Paper>
           </Grid>
         </Grid>

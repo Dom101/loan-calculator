@@ -4,10 +4,10 @@ import { render, fireEvent } from '@testing-library/react';
 import Calculator from '../Calculator';
 import LoanProvider from '../../modules/Loan/Provider';
 
-function renderWrapper(isBc) {
+function renderWrapper(bl) {
   return render(
     <LoanProvider>
-      <Calculator isBc={isBc} />
+      <Calculator isBl={bl} />
     </LoanProvider>
   );
 }

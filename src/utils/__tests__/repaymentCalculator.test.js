@@ -95,7 +95,7 @@ describe('RCF repayment calculator', () => {
   });
 });
 
-describe('BC repayment calculator', () => {
+describe('BL repayment calculator', () => {
   test('when there is a single month', () => {
     const amount = '1000';
     const duration = '1';

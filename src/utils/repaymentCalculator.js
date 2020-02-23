@@ -1,4 +1,4 @@
-export default function repaymentCalculator(amount, duration, interestRate, isBc) {
+export default function repaymentCalculator(amount, duration, interestRate, isBl) {
   const principle = amount / duration;
 
   const repayments = [];
@@ -12,7 +12,7 @@ export default function repaymentCalculator(amount, duration, interestRate, isBc
     let interest = (remainingTotal * interestRate) / 100;
     let repayment = interest + principle;
 
-    if (isBc && i === 0) {
+    if (isBl && i === 0) {
       const fee = amount / 10;
       interest += fee;
       repayment += fee;

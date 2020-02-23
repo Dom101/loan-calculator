@@ -8,12 +8,12 @@ import Table from './Table';
 import repaymentCalculator from '../utils/repaymentCalculator';
 import LoanContext from '../modules/Loan/Context';
 
-export default function Calculator({ isBc }) {
-  const title = isBc ? 'Business Loan' : 'Revolving Credit Facility';
+export default function Calculator({ isBl }) {
+  const title = isBl ? 'Business Loan' : 'Revolving Credit Facility';
   const [interestRate, setInterestRate] = useState(3);
   const { amount, duration } = useContext(LoanContext);
 
-  const rows = repaymentCalculator(amount, duration, interestRate, isBc);
+  const rows = repaymentCalculator(amount, duration, interestRate, isBl);
 
   const useStyles = makeStyles(theme => ({
     margin: {
@@ -46,9 +46,9 @@ export default function Calculator({ isBc }) {
 };
 
 Calculator.propTypes = {
-  isBc: bool,
+  isBl: bool,
 };
 
 Calculator.defaultProps = {
-  isBc: false,
+  isBl: false,
 };
