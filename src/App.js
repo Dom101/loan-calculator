@@ -7,6 +7,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
 import LoanParameters from './components/LoanParameters';
+import RcfCalculator from './components/RcfCalculator';
 import Table from './components/Table';
 
 const useStyles = makeStyles(theme => ({
@@ -54,7 +55,7 @@ function App() {
         </Grid>
         <Grid item xs>
           <Paper className={classes.paper}>
-            <Table rows={rows} />
+            <RcfCalculator />
           </Paper>
         </Grid>
         <Grid item xs>
