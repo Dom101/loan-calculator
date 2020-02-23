@@ -1,20 +1,23 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import FormControl from '@material-ui/core/FormControl';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 
-export default function LoanInputs() {
-  const [values, setValues] = useState({
-    amount: '',
-    duration: ''
-  });
+import LoanContext from '../modules/Loan/Context';
 
-  const handleChange = prop => event => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
+export default function LoanInputs() {
+  // const [values, setValues] = useState({
+  //   amount: '',
+  //   duration: ''
+  // });
+  const { amount, duration, setAmount, setDuration } = useContext(LoanContext);
+
+
+  // const handleChange = prop => event => {
+  //   setValues({ ...values, [prop]: event.target.value });
+  // };
 
   const useStyles = makeStyles(theme => ({
     root: {
@@ -37,8 +40,8 @@ export default function LoanInputs() {
         <InputLabel htmlFor="standard-adornment-amount">Amount Requested</InputLabel>
         <Input
           type="number"
-          value={values.amount}
-          onChange={handleChange('amount')}
+          value={amount}
+          onChange={(event) => setAmount(event.target.value)}
           startAdornment={<InputAdornment position="start">£</InputAdornment>}
           inputProps={{
             'data-testid': 'amountInput'
@@ -49,8 +52,8 @@ export default function LoanInputs() {
         <InputLabel htmlFor="standard-adornment-amount">Duration</InputLabel>
         <Input
           type="number"
-          value={values.duration}
-          onChange={handleChange('duration')}
+          value={duration}
+          onChange={(event) => setDuration(event.target.value)}
           endAdornment={<InputAdornment position="end">months</InputAdornment>}
           inputProps={{
             'data-testid': 'durationInput'

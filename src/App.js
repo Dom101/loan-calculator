@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
+import LoanProvider from './modules/Loan/Provider';
 import LoanParameters from './components/LoanParameters';
 import RcfCalculator from './components/RcfCalculator';
 import Table from './components/Table';
@@ -39,32 +40,35 @@ function App() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            Loan Calculator
+    <LoanProvider>
+
+      <div className={classes.root}>
+        <AppBar position="static">
+          <Toolbar>
+            <Typography variant="h6" className={classes.title}>
+              Loan Calculator
           </Typography>
-        </Toolbar>
-      </AppBar>
-      <Grid container spacing={2} className={classes.grid}>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <LoanParameters />
-          </Paper>
+          </Toolbar>
+        </AppBar>
+        <Grid container spacing={2} className={classes.grid}>
+          <Grid item xs={12}>
+            <Paper className={classes.paper}>
+              <LoanParameters />
+            </Paper>
+          </Grid>
+          <Grid item xs>
+            <Paper className={classes.paper}>
+              <RcfCalculator />
+            </Paper>
+          </Grid>
+          <Grid item xs>
+            <Paper className={classes.paper}>
+              <Table rows={rows} />
+            </Paper>
+          </Grid>
         </Grid>
-        <Grid item xs>
-          <Paper className={classes.paper}>
-            <RcfCalculator />
-          </Paper>
-        </Grid>
-        <Grid item xs>
-          <Paper className={classes.paper}>
-            <Table rows={rows} />
-          </Paper>
-        </Grid>
-      </Grid>
-    </div>
+      </div>
+    </LoanProvider>
   );
 }
 
