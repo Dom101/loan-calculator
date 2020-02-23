@@ -8,8 +8,7 @@ import Grid from "@material-ui/core/Grid";
 
 import LoanProvider from './modules/Loan/Provider';
 import LoanParameters from './components/LoanParameters';
-import RcfCalculator from './components/RcfCalculator';
-import Table from './components/Table';
+import Calculator from './components/Calculator';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -27,14 +26,6 @@ const useStyles = makeStyles(theme => ({
     paddingTop: 20
   }
 }));
-
-const rows = [
-  { date: '01/01/2020', principle: '£2,500', interest: '£300', repayment: '£2,800' },
-  { date: '01/02/2020', principle: '£2,500', interest: '£300', repayment: '£2,800' },
-  { date: '01/03/2020', principle: '£2,500', interest: '£300', repayment: '£2,800' },
-  { date: '01/04/2020', principle: '£2,500', interest: '£300', repayment: '£2,800' },
-  { date: 'Total', principle: '£10,000', interest: '£750', repayment: '£10,750' },
-];
 
 function App() {
   const classes = useStyles();
@@ -58,12 +49,12 @@ function App() {
           </Grid>
           <Grid item xs>
             <Paper className={classes.paper}>
-              <RcfCalculator />
+              <Calculator />
             </Paper>
           </Grid>
           <Grid item xs>
             <Paper className={classes.paper}>
-              <Table rows={rows} />
+              <Calculator isBc />
             </Paper>
           </Grid>
         </Grid>

@@ -1,4 +1,4 @@
-export default function repaymentCalculator(amount, duration, interestRate) {
+export default function repaymentCalculator(amount, duration, interestRate, isBc) {
   const principle = amount / duration;
 
   const repayments = [];
@@ -9,8 +9,14 @@ export default function repaymentCalculator(amount, duration, interestRate) {
 
   for (let i = 0; i < duration; i++) {
     date.setMonth(date.getMonth() + 1);
-    const interest = (remainingTotal * interestRate) / 100;
-    const repayment = interest + principle;
+    let interest = (remainingTotal * interestRate) / 100;
+    let repayment = interest + principle;
+
+    if (isBc && i === 0) {
+      const fee = amount / 10;
+      interest += fee;
+      repayment += fee;
+    }
 
     repayments.push({
       date: `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`,
