@@ -1,7 +1,7 @@
 # loan-calculator
 React app that calculates the loan repayments for 2 types of loans given the amount and duration
 
-It has been deployed to [loan-calculator-dom101.surge.sh](loan-calculator-dom101.surge.sh)
+It has been deployed to [loan-calculator-dom101.surge.sh](http://loan-calculator-dom101.surge.sh)
 
 ## How it works
 
